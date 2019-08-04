@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_P1,  KC_P2,    KC_P3,    KC_PMNS,  KC_NO,               KC_NO,      KC_NO,\
             KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_P0,  KC_PDOT,  KC_PENT,  KC_PPLS,            KC_NO,     KC_NO,      KC_NO,\
             KC_TRNS,  KC_TRNS,  KC_TRNS,                    KC_NO,                  KC_NO,    KC_TRNS,  KC_NO,              KC_NO,     KC_NO,      KC_NO),
-        [_LAYER4] = LAYOUT_65_ansi( /* Unused */
+        [_LAYER4] = LAYOUT_65_ansi( /* Lockdown */
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_NO,\
@@ -64,6 +64,7 @@ void rgb_matrix_indicators_user(void)
             }
             break;
         case _LAYER4:
+            rgb_matrix_set_color(66, 0xFF, 0x00, 0x00);
             break;
     }
 }

@@ -17,25 +17,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
             KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_NO,\
             KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,              KC_NO,     KC_NO,      KC_NO,\
-            KC_TRNS,  KC_TRNS,  KC_TRNS,                    KC_NO,                  KC_TRNS,  KC_TRNS,  KC_TRNS,              KC_NO,     KC_NO,      KC_NO),
+            KC_TRNS,  KC_TRNS,  KC_TRNS,                    KC_NO,                  KC_NO,    KC_NO,    KC_NO,              KC_NO,     KC_NO,      KC_NO),
         [_LAYER2] = LAYOUT_65_ansi( /* Keyboard control */
             RESET,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
-            KC_TRNS,  RGB_VAI,  RGB_HUI,  RGB_SAI,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_NO,\
+            KC_NO,    RGB_VAI,  RGB_HUI,  RGB_SAI,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_NO,\
             KC_NO,    RGB_VAD,  RGB_HUD,  RGB_SAD,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,              RGB_TOG,   RGB_SPI,    KC_NO,\
-            KC_NO,    KC_NO,    KC_NO,                      KC_NO,                  KC_TRNS,  KC_TRNS,  KC_TRNS,            RGB_RMOD,  RGB_SPD,    RGB_MOD),
+            KC_NO,    KC_NO,    KC_NO,                      KC_NO,                  KC_TRNS,  KC_NO,    KC_NO,            RGB_RMOD,  RGB_SPD,    RGB_MOD),
         [_LAYER3] = LAYOUT_65_ansi( /* Virtual Numpad */
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_P7,  KC_P8,    KC_P9,    KC_PSLS,  KC_NO,    KC_NO,     KC_NO,      KC_NO,\
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_P4,  KC_P5,    KC_P6,    KC_PAST,  KC_NO,    KC_NO,     KC_NO,      KC_NO,\
-            KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_P1,  KC_P2,    KC_P3,    KC_PMNS,  KC_NO,               KC_NO,      KC_NO,\
+            KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_P1,  KC_P2,    KC_P3,    KC_PMNS,  KC_NO,               KC_NO,      KC_NO,\
             KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_P0,  KC_PDOT,  KC_PENT,  KC_PPLS,            KC_NO,     KC_NO,      KC_NO,\
-            KC_TRNS,  KC_TRNS,  KC_TRNS,                    KC_NO,                  KC_TRNS,  KC_TRNS,  KC_TRNS,              KC_NO,     KC_NO,      KC_NO),
+            KC_TRNS,  KC_TRNS,  KC_TRNS,                    KC_NO,                  KC_NO,    KC_TRNS,  KC_NO,              KC_NO,     KC_NO,      KC_NO),
         [_LAYER4] = LAYOUT_65_ansi( /* Unused */
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
-            KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_NO,\
+            KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_NO,\
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,              KC_NO,     KC_NO,      KC_NO,\
-            KC_NO,    KC_NO,    KC_NO,                      KC_NO,                  KC_TRNS,  KC_TRNS,  KC_TRNS,            KC_NO,     KC_NO,      KC_NO),
+            KC_NO,    KC_NO,    KC_NO,                      KC_NO,                  KC_NO,    KC_NO,    KC_TRNS,            KC_NO,     KC_NO,      KC_NO),
 };
 
 const uint16_t functionkeys[] = { 16, 15, 14, 13, 12, 11, 10, 9, 18, 19, 20, 21 };

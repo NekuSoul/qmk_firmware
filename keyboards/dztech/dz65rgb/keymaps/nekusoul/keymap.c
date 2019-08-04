@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
             KC_NO,    RGB_VAI,  RGB_HUI,  RGB_SAI,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_NO,\
             KC_NO,    RGB_VAD,  RGB_HUD,  RGB_SAD,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,              RGB_TOG,   RGB_SPI,    KC_NO,\
-            KC_NO,    KC_NO,    KC_NO,                      KC_NO,                  KC_TRNS,  KC_NO,    KC_NO,            RGB_RMOD,  RGB_SPD,    RGB_MOD),
+            KC_NO,    KC_NO,    KC_NO,                      KC_NO,                  KC_TRNS,  KC_NO,    KC_NO,              RGB_RMOD,  RGB_SPD,    RGB_MOD),
         [_LAYER3] = LAYOUT_65_ansi( /* Virtual Numpad */
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_P7,  KC_P8,    KC_P9,    KC_PSLS,  KC_NO,    KC_NO,     KC_NO,      KC_NO,\
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_P4,  KC_P5,    KC_P6,    KC_PAST,  KC_NO,    KC_NO,     KC_NO,      KC_NO,\
@@ -67,19 +67,4 @@ void rgb_matrix_indicators_user(void)
             rgb_matrix_set_color(66, 0xFF, 0x00, 0x00);
             break;
     }
-}
-
-void matrix_init_user(void)
-{
-        rgblight_mode(RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE);
-}
-
-void matrix_scan_user(void)
-{
-  //user matrix
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record)
-{
-      return true;
 }

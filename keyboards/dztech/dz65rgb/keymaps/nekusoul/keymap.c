@@ -19,9 +19,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,              KC_NO,     KC_NO,      KC_NO,\
             KC_TRNS,  KC_TRNS,  KC_TRNS,                    KC_NO,                  KC_NO,    KC_NO,    KC_NO,              KC_NO,     KC_NO,      KC_NO),
         [_LAYER2] = LAYOUT_65_ansi( /* Keyboard control */
-            RESET,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
-            KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
-            KC_NO,    RGB_VAI,  RGB_HUI,  RGB_SAI,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_NO,\
+            RESET,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_DEL,\
+            KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_PGUP,\
+            KC_NO,    RGB_VAI,  RGB_HUI,  RGB_SAI,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_PGDN,\
             KC_NO,    RGB_VAD,  RGB_HUD,  RGB_SAD,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,              RGB_TOG,   RGB_SPI,    KC_NO,\
             KC_NO,    KC_NO,    KC_NO,                      KC_NO,                  KC_TRNS,  KC_NO,    KC_NO,              RGB_RMOD,  RGB_SPD,    RGB_MOD),
         [_LAYER3] = LAYOUT_65_ansi( /* Virtual Numpad */
@@ -39,12 +39,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 const uint8_t functionkeys[] = { 16, 15, 14, 13, 12, 11, 10, 9, 18, 19, 20, 21, 23 };
-const uint8_t controlkeys[] = { 17, 48, 47, 46, 40, 39, 38, 58, 59, 67, 34, 33 };
+const uint8_t controlkeys[] = { 17, 48, 47, 46, 40, 39, 38, 58, 59, 67, 34, 33, 23, 24, 25 };
 const uint8_t numkeys[] = { 61, 62, 63, 57, 51, 52, 53, 54, 0, 26, 27, 28, 10, 9, 18, 19 };
+const uint8_t movementkeys[] = { 5, 48, 47, 46 };
+const uint8_t abilitykeys[] = { 6, 5, 4, 3 };
+
+uint8_t activelegend = 0;
+const uint8_t legendcount = 2;
 
 void rgb_matrix_indicators_user(void)
 {
     switch (biton32(layer_state)) {
+        case _LAYER0:
+            switch (activelegend) {
+                case 1:
+                    for(uint8_t i = 0; i < 4; i++)
+                    {
+                        rgb_matrix_set_color(movementkeys[i], 0xFF, 0x00, 0x00);
+                    }
+                    break;
+                case 2:
+                    for(uint8_t i = 0; i < 4; i++)
+                    {
+                        rgb_matrix_set_color(abilitykeys[i], 0xFF, 0x00, 0x00);
+                    }
+                    break;
+            }
+            break;
         case _LAYER1:
             for(uint8_t i = 0; i < 13; i++)
             {
@@ -52,9 +73,23 @@ void rgb_matrix_indicators_user(void)
             }
             break;
         case _LAYER2:
-            for(uint8_t i = 0; i < 12; i++)
+            for(uint8_t i = 0; i < 15; i++)
             {
                 rgb_matrix_set_color(controlkeys[i], 0xFF, 0x00, 0x00);
+            }
+            switch (activelegend) {
+                case 1:
+                    for(uint8_t i = 0; i < 4; i++)
+                    {
+                        rgb_matrix_set_color(movementkeys[i], 0x00, 0x00, 0xFF);
+                    }
+                    break;
+                case 2:
+                    for(uint8_t i = 0; i < 4; i++)
+                    {
+                        rgb_matrix_set_color(abilitykeys[i], 0x00, 0x00, 0xFF);
+                    }
+                    break;
             }
             break;
         case _LAYER3:
@@ -67,4 +102,49 @@ void rgb_matrix_indicators_user(void)
             rgb_matrix_set_color(66, 0xFF, 0x00, 0x00);
             break;
     }
+}
+
+void matrix_init_user(void)
+{
+    rgblight_mode(RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE);
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record)
+{
+    if(biton32(layer_state) != _LAYER2)
+    {
+        return true;
+    }
+
+    if (!record->event.pressed)
+    {
+        return true;
+    }
+
+    switch (keycode) {
+        case KC_DEL:
+            activelegend = 0;
+            break;
+        case KC_PGUP:
+            if (activelegend == 0)
+            {
+                activelegend = legendcount;
+            }
+            else
+            {
+                activelegend = activelegend - 1;
+            }
+            return false;
+        case KC_PGDN:
+            if (activelegend == legendcount)
+            {
+                activelegend = 0;
+            }
+            else
+            {
+                activelegend = activelegend + 1;
+            }
+            return false;
+        }
+    return true;
 }

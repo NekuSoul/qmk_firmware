@@ -13,7 +13,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,  KC_DOT,   KC_SLSH,            KC_HOME,   KC_UP,      KC_END,\
             KC_LCTL,  KC_LGUI,  KC_LALT,                    KC_SPC,                 TT(2),    TT(3),    TT(4),              KC_LEFT,   KC_DOWN,    KC_RIGHT),
         [_LAYER1] = LAYOUT_65_ansi( /* Function keys */
-            KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,    KC_NO,      KC_NO,\
+            KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,    KC_NO,      KC_PSCR,\
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
             KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_NO,\
             KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,              KC_NO,     KC_NO,      KC_NO,\
@@ -38,15 +38,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,    KC_NO,    KC_NO,                      KC_NO,                  KC_NO,    KC_NO,    KC_TRNS,            KC_NO,     KC_NO,      KC_NO),
 };
 
-const uint16_t functionkeys[] = { 16, 15, 14, 13, 12, 11, 10, 9, 18, 19, 20, 21 };
-const uint16_t controlkeys[] = { 17, 48, 47, 46, 40, 39, 38, 58, 59, 67, 34, 33 };
-const uint16_t numkeys[] = { 61, 62, 63, 57, 51, 52, 53, 54, 0, 26, 27, 28, 10, 9, 18, 19 };
+const uint8_t functionkeys[] = { 16, 15, 14, 13, 12, 11, 10, 9, 18, 19, 20, 21, 23 };
+const uint8_t controlkeys[] = { 17, 48, 47, 46, 40, 39, 38, 58, 59, 67, 34, 33 };
+const uint8_t numkeys[] = { 61, 62, 63, 57, 51, 52, 53, 54, 0, 26, 27, 28, 10, 9, 18, 19 };
 
 void rgb_matrix_indicators_user(void)
 {
     switch (biton32(layer_state)) {
         case _LAYER1:
-            for(uint8_t i = 0; i < 12; i++)
+            for(uint8_t i = 0; i < 13; i++)
             {
                 rgb_matrix_set_color(functionkeys[i], 0xFF, 0x00, 0x00);
             }

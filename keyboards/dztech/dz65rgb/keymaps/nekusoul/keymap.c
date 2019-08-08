@@ -126,16 +126,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             activelegend = 0;
             break;
         case KC_PGUP:
-            if (activelegend == 0)
-            {
-                activelegend = legendcount;
-            }
-            else
-            {
-                activelegend = activelegend - 1;
-            }
-            return false;
-        case KC_PGDN:
             if (activelegend == legendcount)
             {
                 activelegend = 0;
@@ -143,6 +133,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             else
             {
                 activelegend = activelegend + 1;
+            }
+            return false;
+        case KC_PGDN:
+            if (activelegend == 0)
+            {
+                activelegend = legendcount;
+            }
+            else
+            {
+                activelegend = activelegend - 1;
             }
             return false;
         }

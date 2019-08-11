@@ -106,7 +106,7 @@ void rgb_matrix_indicators_user(void)
 
 void matrix_init_user(void)
 {
-    rgblight_mode(RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE);
+    rgblight_mode(RGB_MATRIX_SOLID_MULTISPLASH);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record)

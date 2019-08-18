@@ -29,13 +29,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_P4,   KC_P5,   KC_P6,   KC_PAST, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______,  _______, _______,\
         XXXXXXX, KC_P1,   KC_P2,   KC_P3,   KC_PMNS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______,           _______, _______,\
         _______, KC_P0,   KC_PDOT, KC_PENT, KC_PPLS, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______,          _______,  _______, _______,\
-        _______, _______, _______,                   XXXXXXX,                   XXXXXXX, _______, XXXXXXX,          _______,  _______, _______),
+        _______, _______, _______,                   XXXXXXX,                   XXXXXXX, XXXXXXX, _______,          _______,  _______, _______),
     [_LAYER4] = LAYOUT_65_ansi( /* Indicator customization */
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,\
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX,\
-        XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX,                   KC_1,    XXXXXXX, _______,          XXXXXXX, XXXXXXX, XXXXXXX),
+        XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX,                   KC_1,    _______, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX),
 };
 
 const uint8_t functionkeys[] = { 16, 15, 14, 13, 12, 11, 10, 9, 18, 19, 20, 21, 23 };

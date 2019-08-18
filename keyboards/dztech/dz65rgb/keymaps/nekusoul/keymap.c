@@ -35,14 +35,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,      KC_NO,\
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,               KC_NO,      KC_NO,\
             KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,              KC_NO,     KC_NO,      KC_NO,\
-            KC_NO,    KC_NO,    KC_NO,                      KC_NO,                  KC_NO,    KC_NO,    KC_TRNS,            KC_NO,     KC_NO,      KC_NO),
+            KC_NO,    KC_NO,    KC_NO,                      KC_NO,                  KC_1,     KC_NO,    KC_TRNS,            KC_NO,     KC_NO,      KC_NO),
 };
 
 const uint8_t functionkeys[] = { 16, 15, 14, 13, 12, 11, 10, 9, 18, 19, 20, 21, 23 };
 const uint8_t controlkeys[] = { 17, 48, 47, 46, 40, 39, 38, 58, 59, 67, 34, 33 };
 const uint8_t numkeys[] = { 61, 62, 63, 57, 51, 52, 53, 54, 0, 26, 27, 28, 10, 9, 18, 19 };
 
-bool rgb_indicator_state[MATRIX_ROWS][MATRIX_COLS] = {{0}};
+uint8_t rgb_indicator_state[MATRIX_ROWS][MATRIX_COLS] = {{0}};
+uint8_t color_state = 1;
 
 void rgb_matrix_indicators_user(void)
 {
@@ -52,9 +53,16 @@ void rgb_matrix_indicators_user(void)
             {
                 for(uint8_t col = 0; col < MATRIX_COLS; col++)
                 {
-                    if(rgb_indicator_state[row][col])
-                    {
-                        rgb_matrix_set_color(g_led_config.matrix_co[row][col], 0xFF, 0x00, 0x00);
+                    switch(rgb_indicator_state[row][col]) {
+                        case 1:
+                            rgb_matrix_set_color(g_led_config.matrix_co[row][col], 0xFF, 0x00, 0x00);
+                            break;
+                        case 2:
+                            rgb_matrix_set_color(g_led_config.matrix_co[row][col], 0x00, 0xFF, 0x00);
+                            break;
+                        case 3:
+                            rgb_matrix_set_color(g_led_config.matrix_co[row][col], 0x00, 0x00, 0xFF);
+                            break;
                     }
                 }
             }
@@ -84,14 +92,34 @@ void rgb_matrix_indicators_user(void)
                 {
                     if(rgb_indicator_state[row][col])
                     {
-                        rgb_matrix_set_color(g_led_config.matrix_co[row][col], 0x00, 0x00, 0xFF);
+                        switch(rgb_indicator_state[row][col]) {
+                        case 1:
+                            rgb_matrix_set_color(g_led_config.matrix_co[row][col], 0xFF, 0x00, 0x00);
+                            break;
+                        case 2:
+                            rgb_matrix_set_color(g_led_config.matrix_co[row][col], 0x00, 0xFF, 0x00);
+                            break;
+                        case 3:
+                            rgb_matrix_set_color(g_led_config.matrix_co[row][col], 0x00, 0x00, 0xFF);
+                            break;
+                        }
                     }
                 }
             }
             rgb_matrix_set_color(66, 0xFF, 0x00, 0x00);
+            switch(color_state) {
+                case 1:
+                    rgb_matrix_set_color(64, 0xFF, 0x00, 0x00);
+                    break;
+                case 2:
+                    rgb_matrix_set_color(64, 0x00, 0xFF, 0x00);
+                    break;
+                case 3:
+                    rgb_matrix_set_color(64, 0x00, 0x00, 0xFF);
+                    break;
+                }
             break;
     }
-}
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
@@ -109,8 +137,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             {
                 return true;
             }
-            // Invert current state
-            rgb_indicator_state[record->event.key.row][record->event.key.col] = !rgb_indicator_state[record->event.key.row][record->event.key.col];
+            if(keycode==KC_1)
+            {
+                if(color_state == 4)
+                {
+                    color_state = 1;
+                }
+                color_state = color_state + 1;
+                return false;
+            }
+            if(rgb_indicator_state[record->event.key.row][record->event.key.col] != color_state)
+            {
+                // Set to current color
+                rgb_indicator_state[record->event.key.row][record->event.key.col] = color_state;
+            }
+            else
+            {
+                // Disable color
+                rgb_indicator_state[record->event.key.row][record->event.key.col] = 0;
+            }
             return true;
     }
 

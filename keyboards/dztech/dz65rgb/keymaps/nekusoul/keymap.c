@@ -139,11 +139,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             }
             if(keycode==KC_1)
             {
+                color_state = color_state + 1;
                 if(color_state == 4)
                 {
                     color_state = 1;
                 }
-                color_state = color_state + 1;
                 return false;
             }
             if(rgb_indicator_state[record->event.key.row][record->event.key.col] != color_state)

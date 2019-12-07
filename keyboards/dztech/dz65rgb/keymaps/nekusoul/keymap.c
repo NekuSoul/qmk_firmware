@@ -38,9 +38,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX,                   KC_1,    _______, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX),
 };
 
-const uint8_t functionkeys[] = { 16, 15, 14, 13, 12, 11, 10, 9, 18, 19, 20, 21, 23 };
-const uint8_t controlkeys[] = { 17, 48, 47, 46, 40, 39, 38, 58, 59, 67, 34, 33 };
-const uint8_t numkeys[] = { 16, 15, 14, 13, 6, 5, 4, 3, 48, 47, 46, 45, 40, 39, 38, 37};
+const uint8_t functionkeys[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14 };
+const uint8_t controlkeys[] = { 0, 31, 32 , 33, 45, 46, 47, 55, 56, 65, 66, 67 };
+const uint8_t numkeys[] = { 1, 2, 3, 4, 16, 17, 18, 19, 31, 32, 33, 34, 45, 46, 47, 48};
 
 uint8_t rgb_indicator_state[MATRIX_ROWS][MATRIX_COLS] = {{0}};
 uint8_t color_state = 1;

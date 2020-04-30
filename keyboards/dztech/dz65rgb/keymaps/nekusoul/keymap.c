@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 const uint8_t functionkeys[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14 };
-const uint8_t controlkeys[] = { 0, 31, 32 , 33, 45, 46, 47, 55, 56, 65, 66, 67 };
+const uint8_t controlkeys[] = { 0, 31, 32, 33, 45, 46, 47, 55, 56, 65, 66, 67 };
 const uint8_t numkeys[] = { 1, 2, 3, 4, 16, 17, 18, 19, 31, 32, 33, 34, 45, 46, 47, 48};
 
 uint8_t rgb_indicator_state[MATRIX_ROWS][MATRIX_COLS] = {{0}};
@@ -68,21 +68,21 @@ void rgb_matrix_indicators_user(void)
             }
             break;
         case _LAYER1:
-            rgb_matrix_set_color(8, 0xFF, 0x00, 0x00);
+            rgb_matrix_set_color(30, 0xFF, 0x00, 0x00);
             for(uint8_t i = 0; i < 13; i++)
             {
                 rgb_matrix_set_color(functionkeys[i], 0xFF, 0x00, 0x00);
             }
             break;
         case _LAYER2:
-            rgb_matrix_set_color(64, 0xFF, 0x00, 0x00);
+            rgb_matrix_set_color(62, 0xFF, 0x00, 0x00);
             for(uint8_t i = 0; i < 12; i++)
             {
                 rgb_matrix_set_color(controlkeys[i], 0xFF, 0x00, 0x00);
             }
             break;
         case _LAYER3:
-            rgb_matrix_set_color(66, 0xFF, 0x00, 0x00);
+            rgb_matrix_set_color(64, 0xFF, 0x00, 0x00);
             for(uint8_t i = 0; i < 16; i++)
             {
                 rgb_matrix_set_color(numkeys[i], 0xFF, 0x00, 0x00);
@@ -109,16 +109,16 @@ void rgb_matrix_indicators_user(void)
                     }
                 }
             }
-            rgb_matrix_set_color(65, 0xFF, 0x00, 0x00);
+            rgb_matrix_set_color(63, 0xFF, 0x00, 0x00);
             switch(color_state) {
                 case 1:
-                    rgb_matrix_set_color(64, 0xFF, 0x00, 0x00);
+                    rgb_matrix_set_color(62, 0xFF, 0x00, 0x00);
                     break;
                 case 2:
-                    rgb_matrix_set_color(64, 0x00, 0xFF, 0x00);
+                    rgb_matrix_set_color(62, 0x00, 0xFF, 0x00);
                     break;
                 case 3:
-                    rgb_matrix_set_color(64, 0x00, 0x00, 0xFF);
+                    rgb_matrix_set_color(62, 0x00, 0x00, 0xFF);
                     break;
                 }
             break;

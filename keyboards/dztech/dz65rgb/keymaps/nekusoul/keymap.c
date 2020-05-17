@@ -1,4 +1,6 @@
 #include QMK_KEYBOARD_H
+#include "raw_hid.h"
+
 #define _LAYERDEF 0
 #define _LAYERFNK 1
 #define _LAYERKBC 2
@@ -163,4 +165,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     }
 
     return true;
+}
+
+void raw_hid_receive(uint8_t *data, uint8_t length) {
+    
+    if(length < 3)
+        return;
+
+    if(data[0]>MATRIX_ROWS)
+        return;
+
+    if(data[1]>MATRIX_COLS)
+        return;
+
+    if(data[2]>3)
+        return;
+    
+    rgb_indicator_state[data[0]][data[1]] = data[2];
 }

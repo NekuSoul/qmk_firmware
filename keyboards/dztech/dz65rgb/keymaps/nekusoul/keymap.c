@@ -24,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
         XXXXXXX, RGB_VAI, RGB_HUI, RGB_SAI, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,\
         XXXXXXX, RGB_VAD, RGB_HUD, RGB_SAD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          RGB_TOG, RGB_SPI, XXXXXXX,\
-        XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX,                   _______, XXXXXXX, XXXXXXX,          RGB_RMOD,RGB_SPD, RGB_MOD),
+        XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX,                   XXXXXXX, _______, XXXXXXX,          RGB_RMOD,RGB_SPD, RGB_MOD),
     [_LAYERVNP] = LAYOUT_65_ansi( /* Virtual Numpad */
         _______, KC_P7,   KC_P8,   KC_P9,   KC_PSLS, S(KC_5), S(KC_6), S(KC_7), S(KC_8), S(KC_9), S(KC_0), _______, _______, _______, _______,\
         _______, KC_P4,   KC_P5,   KC_P6,   KC_PAST, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______,\

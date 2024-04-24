@@ -51,14 +51,14 @@
 
 /* RGB Matrix Configuration */
 #define WS2812_PIO_USE_PIO1
-#define RGB_DI_PIN GP15
+#define WS2812_DI_PIN GP15
 #define RGB_MATRIX_LED_COUNT 92
 #define RGB_MATRIX_SPLIT { 46, 46 }
 #define RGB_MATRIX_CENTER { 105, 38 }
 #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 255
 #define RGB_MATRIX_LED_FLUSH_LIMIT 33
 #define RGB_MATRIX_LED_PROCESS_LIMIT 10
-#define RGB_DISABLE_WHEN_USB_SUSPENDED
+#define RGB_MATRIX_SLEEP
 
 // RGB Matrix Animation modes. Explicitly enabled
 // For full list of effects, see:

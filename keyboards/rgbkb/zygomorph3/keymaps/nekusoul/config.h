@@ -1,0 +1,21 @@
+#pragma once
+
+#undef PRODUCT
+#define PRODUCT "NekuSoul-Keyboard"
+
+// No need for the single versions when multi performance isn't a problem =D
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_CROSS
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS
+#undef ENABLE_RGB_MATRIX_SPLASH
+#undef ENABLE_RGB_MATRIX_SOLID_SPLASH
+
+// 20m timeout (20m * 60s * 1000mil)
+// #define RGB_DISABLE_TIMEOUT 1200000
+#define SPLIT_USB_TIMEOUT 10000
+#define SPLIT_USB_TIMEOUT_POLL 10
+#define AUTO_SHIFT_DISABLED_AT_STARTUP
+#define FORCE_NKRO
+
+#define BOOTMAGIC_LITE_ROW_RIGHT 5
+#define BOOTMAGIC_LITE_COLUMN_RIGHT 7

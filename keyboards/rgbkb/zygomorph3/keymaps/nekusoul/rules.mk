@@ -1,0 +1,3 @@
+AUTO_SHIFT_ENABLE = yes
+NKRO_ENABLE = yes
+RAW_ENABLE = yes

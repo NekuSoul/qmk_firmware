@@ -1,0 +1,1 @@
+#define MODE_OFF {NULL,NULL,NULL,NULL}

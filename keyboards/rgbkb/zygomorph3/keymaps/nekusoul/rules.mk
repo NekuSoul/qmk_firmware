@@ -1,3 +1,4 @@
 AUTO_SHIFT_ENABLE = yes
 NKRO_ENABLE = yes
 RAW_ENABLE = yes
+DEBOUNCE_TYPE = sym_eager_pk

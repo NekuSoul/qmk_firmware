@@ -1,5 +1,6 @@
 #pragma once
 
+// Product name
 #undef PRODUCT
 #define PRODUCT "NekuSoul-Keyboard"
 
@@ -10,15 +11,19 @@
 #undef ENABLE_RGB_MATRIX_SPLASH
 #undef ENABLE_RGB_MATRIX_SOLID_SPLASH
 
-// 20m timeout (20m * 60s * 1000mil)
-// #define RGB_DISABLE_TIMEOUT 1200000
+// Split detection
 #define SPLIT_USB_TIMEOUT 2000
 #define SPLIT_USB_TIMEOUT_POLL 10
 #define SPLIT_WATCHDOG_ENABLE
 #define SPLIT_WATCHDOG_TIMEOUT 3000
 
+// Debounce
+#define DEBOUNCE 25
+
+// NKRO
 #define AUTO_SHIFT_DISABLED_AT_STARTUP
 #define FORCE_NKRO
 
+// BOOTMAGIC
 #define BOOTMAGIC_LITE_ROW_RIGHT 5
 #define BOOTMAGIC_LITE_COLUMN_RIGHT 7

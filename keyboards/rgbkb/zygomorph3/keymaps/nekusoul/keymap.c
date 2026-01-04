@@ -18,32 +18,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC  , KC_Q    , KC_W    , KC_E    , KC_R    , KC_T    , KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    , KC_BSLS ,
     KC_TAB  , KC_A    , KC_S    , KC_D    , KC_F    , KC_G    , KC_H    , KC_J    , KC_K    , KC_L    , KC_SCLN , KC_QUOT ,
     KC_LSFT , KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    , KC_N    , KC_M    , KC_COMM , KC_DOT  , KC_UP   , KC_ENT  ,
-    KC_LCTL , KC_LGUI , KC_RALT , KC_DEL  , EXTRA   , KC_SPC  , KC_BSPC , KC_MINS , KC_EQL  , KC_LEFT , KC_DOWN , KC_RGHT ,
-
-    _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ ,
-    _______ , _______ , _______ , _______ , _______ ,                     _______ , _______ , _______ , _______ , _______
+    KC_LCTL , KC_LGUI , KC_LALT , KC_DEL  , EXTRA   , KC_SPC  , KC_BSPC , KC_MINS , KC_EQL  , KC_LEFT , KC_DOWN , KC_RGHT
   ),
   [_EXTRA] = LAYOUT(
     MENU_ON , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_LT   , KC_GT   , KC_P7   , KC_P8   , KC_P9   , KC_NUM  , KC_SCRL ,
     KC_ESC  , KC_F5   , KC_F6   , KC_F7   , KC_F8   , KC_LCBR , KC_RCBR , KC_P4   , KC_P5   , KC_P6   , KC_PSLS , KC_PAST ,
     KC_TAB  , KC_F9   , KC_F10  , KC_F11  , KC_F12  , KC_LPRN , KC_RPRN , KC_P1   , KC_P2   , KC_P3   , KC_PMNS , KC_PPLS ,
     KC_RSFT , KC_SCRL , KC_PAUS , KC_INS  , KC_PSCR , KC_LBRC , KC_RBRC , KC_PEQL , KC_P0   , KC_PDOT , KC_PGUP , KC_PENT ,
-    KC_RCTL , KC_LGUI , KC_LALT , KC_DEL  , KC_TRNS , KC_SPC  , KC_BSPC , KC_CAPS , KC_APP  , KC_HOME , KC_PGDN , KC_END  ,
-
-    _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ ,
-    _______ , _______ , _______ , _______ , _______ ,                     _______ , _______ , _______ , _______ , _______
+    KC_RCTL , KC_LGUI , KC_RALT , KC_DEL  , KC_TRNS , KC_SPC  , KC_BSPC , KC_CAPS , KC_APP  , KC_HOME , KC_PGDN , KC_END  
   ),
   [_ADJUST] =  LAYOUT(
-    QK_BOOT , XXXXXXX , XXXXXXX , XXXXXXX , RGB_TOG , RGB_RMOD, RGB_MOD , RGB_TOG , XXXXXXX , XXXXXXX , XXXXXXX , QK_BOOT ,
-    XXXXXXX , XXXXXXX , MENU_U1 , XXXXXXX , AS_OFF  , RGB_HUD , RGB_HUI , AS_ON   , XXXXXXX , MENU_U2 , XXXXXXX , XXXXXXX ,
-    XXXXXXX , MENU_L1 , MENU_B1 , MENU_R1 , AS_DOWN , RGB_SAD , RGB_SAI , AS_UP   , MENU_L2 , MENU_B2 , MENU_R2 , XXXXXXX ,
-    XXXXXXX , XXXXXXX , MENU_D1 , XXXXXXX , XXXXXXX , RGB_VAD , RGB_VAI , XXXXXXX , XXXXXXX , MENU_D2 , XXXXXXX , XXXXXXX ,
-    QK_RBT  , XXXXXXX , XXXXXXX , XXXXXXX , MENU_OFF, RGB_SPD , RGB_SPI , MENU_OFF, XXXXXXX , XXXXXXX , XXXXXXX , QK_RBT  ,
-
-    _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ ,
-    _______ , _______ , _______ , _______ , _______ ,                     _______ , _______ , _______ , _______ , _______
+    QK_BOOT , XXXXXXX , XXXXXXX , XXXXXXX , RM_TOGG , RM_PREV , RM_NEXT , RM_TOGG , XXXXXXX , XXXXXXX , XXXXXXX , QK_BOOT ,
+    XXXXXXX , XXXXXXX , MENU_U1 , XXXXXXX , AS_OFF  , RM_HUED , RM_HUEU , AS_ON   , XXXXXXX , MENU_U2 , XXXXXXX , XXXXXXX ,
+    XXXXXXX , MENU_L1 , MENU_B1 , MENU_R1 , AS_DOWN , RM_SATD , RM_SATU , AS_UP   , MENU_L2 , MENU_B2 , MENU_R2 , XXXXXXX ,
+    XXXXXXX , XXXXXXX , MENU_D1 , XXXXXXX , XXXXXXX , RM_VALD , RM_VALU , XXXXXXX , XXXXXXX , MENU_D2 , XXXXXXX , XXXXXXX ,
+    QK_RBT  , XXXXXXX , XXXXXXX , XXXXXXX , MENU_OFF, RM_SPDD , RM_SPDU , MENU_OFF, XXXXXXX , XXXXXXX , XXXXXXX , QK_RBT  
   )
-};
+}
 
 // QMK events
 

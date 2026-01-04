@@ -10,73 +10,6 @@
 #include "rev1.h"
 #include "split_util.h"
 
-#define NUMBER_OF_TOUCH_ENCODERS 2
-#define TOUCH_ENCODER_OPTIONS TOUCH_SEGMENTS + 2
-
-#define NUMBER_OF_ENCODERS 6
-#define ENCODER_OPTIONS 2
-
-typedef struct PACKED {
-    uint8_t r;
-    uint8_t c;
-} encodermap_t;
-
-// this maps encoders and then touch encoders to their respective electrical matrix entry
-// mapping is row (y) then column (x) when looking at the electrical layout
-const encodermap_t encoder_map[NUMBER_OF_ENCODERS][ENCODER_OPTIONS] = 
-{
-    { {  5, 0 }, {  5, 1 } }, // Encoder 0 matrix entries
-    { {  5, 2 }, {  5, 3 } }, // Encoder 1 matrix entries
-    { {  5, 4 }, {  5, 5 } }, // Encoder 2 matrix entries
-    { { 12, 0 }, { 12, 1 } }, // Encoder 3 matrix entries
-    { { 12, 2 }, { 12, 3 } }, // Encoder 4 matrix entries
-    { { 12, 4 }, { 12, 5 } }  // Encoder 5 matrix entries
-};
-
-const encodermap_t touch_encoder_map[NUMBER_OF_TOUCH_ENCODERS][TOUCH_ENCODER_OPTIONS] = 
-{
-    { {  6, 0 }, {  6, 1 }, {  6, 2 }, {  6, 3 }, {  6, 4 }, }, // Touch Encoder 0 matrix entries
-    { { 13, 0 }, { 13, 1 }, { 13, 2 }, { 13, 3 }, { 13, 4 }, }  // Touch Encoder 1 matrix entries
-};
-
-static void process_encoder_matrix(encodermap_t pos) {
-    action_exec((keyevent_t){
-        .key = (keypos_t){.row = pos.r, .col = pos.c}, .pressed = true, .time = (timer_read() | 1) /* time should not be 0 */
-    });
-#if TAP_CODE_DELAY > 0
-    wait_ms(TAP_CODE_DELAY);
-#endif
-    action_exec((keyevent_t){
-        .key = (keypos_t){.row = pos.r, .col = pos.c}, .pressed = false, .time = (timer_read() | 1) /* time should not be 0 */
-    });
-}
-
-bool encoder_update_kb(uint8_t index, bool clockwise) {
-    if (!encoder_update_user(index, clockwise))
-        return false;
-
-    // Mapping clockwise (typically increase) to zero, and counter clockwise (decrease) to 1
-    process_encoder_matrix(encoder_map[index][clockwise ? 0 : 1]);
-    return false;
-}
-
-bool touch_encoder_update_kb(uint8_t index, bool clockwise) {
-    if (!touch_encoder_update_user(index, clockwise))
-        return false;
-
-    // Mapping clockwise (typically increase) to zero, and counter clockwise (decrease) to 1
-    process_encoder_matrix(touch_encoder_map[index][clockwise ? 0 : 1]);
-    return false;
-}
-
-bool touch_encoder_tapped_kb(uint8_t index, uint8_t section) {
-    if (!touch_encoder_tapped_user(index, section))
-        return false;
-
-    process_encoder_matrix(touch_encoder_map[index][section + 2]);
-    return false;
-}
-
 #ifdef RGB_MATRIX_ENABLE
 // clang-format off
 led_config_t g_led_config = { {
@@ -85,18 +18,12 @@ led_config_t g_led_config = { {
     {  16,  18,  20,  21,  23,  25},
     {  35,  33,  31,  30,  28,  26},
     {  36,  38,  40,  41,  43,  45},
-    
-    {  NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED },
-    {  NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED },
 
     {  46,  47,  48,  49,  50,  51},
     {  61,  59,  57,  56,  54,  52},
     {  62,  64,  66,  67,  69,  71},
     {  81,  79,  77,  76,  74,  72},
     {  82,  84,  86,  87,  89,  91},
-    
-    {  NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED },
-    {  NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED }
 }, { 
     // Left Half
     {   0,   0 }, {  19,   0 }, {  38,   0 }, {  57,   0 }, {  76,   0 }, {  95,  0  },
@@ -177,18 +104,6 @@ void render_leds_status(void)
     oled_write_P(led_state.scroll_lock ? PSTR("S") : PSTR(" "), false);
 }
 
-__attribute__((weak))
-void render_touch_status(void)
-{
-    // Host Touch LED Status
-    static const char PROGMEM touch_icon[] = {
-        0x12,0x3A,0
-    };
-    oled_write_P(touch_icon, false);
-    oled_write_P(         touch_encoder_is_on() ? PSTR("T") : PSTR(" "), false);
-    oled_write_P(touch_encoder_is_calibrating() ? PSTR("C") : PSTR(" "), false);
-    oled_write_P(PSTR(" "), false);
-}
 
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
     // Sol 3 uses OLED_ROTATION_270 for default rotation on both halves
@@ -205,8 +120,6 @@ bool oled_task_kb(void) {
         render_layer_status();
         oled_write_P(PSTR("     "), false);
         render_leds_status();
-        oled_write_P(PSTR("     "), false);
-        render_touch_status();
     }
     else {
         render_icon();
@@ -222,7 +135,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 
     switch(keycode) {
 #ifdef RGB_MATRIX_ENABLE
-        case RGB_TOG:
+        case RM_TOGG:
             if (record->event.pressed) {
                 rgb_matrix_increase_flags();
             }

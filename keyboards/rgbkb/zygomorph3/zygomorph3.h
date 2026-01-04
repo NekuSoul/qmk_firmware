@@ -22,5 +22,4 @@
 #endif
 
 #include "quantum.h"
-#include "touch_encoder.h"
 #include "common_oled.h"

@@ -9,24 +9,6 @@
 
 #pragma once
 
-// /* Matrix Configuration - Rows are doubled up */
-// #define MATRIX_ROWS 14
-// // Last pins reserved for encoder / touch encoder support
-// // Empty matrix entries used for encoder / touch encoder support
-// #define MATRIX_ROW_PINS { GP10, GP9, GP1, GP2, GP3, NO_PIN, NO_PIN }
-// #define MATRIX_COLS 6
-// #define MATRIX_COL_PINS { GP18, GP19, GP20, GP21, GP22, GP23 }
-
-/* Touchbar adjustments */
-#define TOUCH_DEADZONE 50 // width of a "button", wider inputs will be interpreted as a swipe
-#define TOUCH_TERM 350 // time of a "button" touch, longer inputs will be a swipe
-#define TOUCH_RESOLUTION 25 // sensitivity of swipes, lower=faster
-#define TOUCH_SEGMENTS 3
-
-/* Encoder Configuration */
-#define ENCODERS_PAD_A { GP7, GP28, GP5 }
-#define ENCODERS_PAD_B { GP6, GP29, GP4 }
-
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 
@@ -42,7 +24,7 @@
 #define SPLIT_LAYER_STATE_ENABLE
 #define SPLIT_LED_STATE_ENABLE
 #define SPLIT_MODS_ENABLE
-#define SPLIT_TRANSACTION_IDS_KB TOUCH_ENCODER_SYNC, RGB_MENU_SYNC
+#define SPLIT_TRANSACTION_IDS_KB RGB_MENU_SYNC
 
 /* I2C Configuration */
 #define I2C_DRIVER I2CD0
@@ -53,7 +35,6 @@
 #define WS2812_PIO_USE_PIO1
 #define WS2812_DI_PIN GP15
 #define RGB_MATRIX_LED_COUNT 92
-#define RGB_MATRIX_SPLIT { 46, 46 }
 #define RGB_MATRIX_CENTER { 105, 38 }
 #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 255
 #define RGB_MATRIX_LED_FLUSH_LIMIT 33

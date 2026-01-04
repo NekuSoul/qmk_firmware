@@ -62,8 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT,     KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,  KC_COMM,   KC_DOT,  KC_SLSH,   KC_ENT,
     KC_LCTL,  KC_LGUI,  KC_LALT,  RGB_TOG,   ADJUST,   KC_SPC,   KC_SPC,       FN,  KC_LEFT,  KC_DOWN,    KC_UP, KC_RIGHT,
 
-    KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,
-    KC_VOLU,  KC_VOLD,  KC_MNXT,  KC_MPLY,  KC_MPRV,                      KC_VOLU,  KC_VOLD,  KC_MNXT,  KC_MPLY,  KC_MPRV
+    KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU
   ), 
 
   /*  Colemak Layout
@@ -92,8 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT,     KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,     KC_M,     KC_H,  KC_COMM,   KC_DOT,  KC_SLSH,   KC_ENT,
     KC_LCTL,  KC_LGUI,  KC_LALT,  RGB_TOG,   ADJUST,   KC_SPC,   KC_SPC,       FN,  KC_LEFT,  KC_DOWN,    KC_UP, KC_RIGHT,
 
-    KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,
-    KC_VOLU,  KC_VOLD,  KC_MNXT,  KC_MPLY,  KC_MPRV,                      KC_VOLU,  KC_VOLD,  KC_MNXT,  KC_MPLY,  KC_MPRV
+    KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU,  KC_VOLD,  KC_VOLU
   ),
 
   /*  FN Layout
@@ -152,8 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  RGB_TOG,  RGB_HUI,  RGB_SAI,  RGB_VAI,
     _______,  _______,  _______,  RGB_MOD,  _______,  _______,  _______,  _______, RGB_RMOD,  RGB_HUD,  RGB_SAD,  RGB_VAD,
 
-    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-    _______,  _______,  _______,  _______,  _______,                      _______,  _______,  _______,  _______,  _______
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______
   )
 };
 
